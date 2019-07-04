@@ -2,7 +2,19 @@
 
 namespace App\Http\Controllers;
 
+
+
+
 use Illuminate\Http\Request;
+
+//DODANO
+use App\Post;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
+
+
+
 
 class HomeController extends Controller
 {
@@ -21,12 +33,30 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+
+
     public function index()
     {
-        return view('home');
+        $posts = DB::table('users') -> leftjoin('posts', 'users.id', '=', 'posts.author')->paginate(10);
+        return view('home', ["posts" => $posts] );
     }
 
-    public function getPostFrom(){
+
+
+    public function getPostForm(){
         return view('post/post_form');
+    }
+
+
+
+
+public function createPost(Request $request){
+        $post = Post::create(array(
+            'title' =>Input::get('title'),
+            'description' =>Input::get('description'),
+            'author' => Auth::user()->id
+        ));
+        return redirect()->route('home')->with('success', 'Post has been created');
     }
 }

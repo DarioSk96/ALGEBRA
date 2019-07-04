@@ -22,16 +22,22 @@ Route::get('/index', function () {
 });
 
 
+Route::get('author/post', function(){
 
-
-//proba
-Route::get('proba', function(){
-    return view('proba');
 });
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('author/post', 'HomeController@getPostForm')->name('post.form');
+Route::post('author/post', 'HomeController@createPost')->name('post.form');
 
 Auth::routes();
+
+
+
+
+
 
 
