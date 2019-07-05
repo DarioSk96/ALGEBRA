@@ -9,37 +9,39 @@
 
     <div class="row">
     <div class="col-sm-8 blog-main">
+    @if($posts)
+    @foreach($posts as $post)
     <div class="blog-post">
-    <h2 class="blog-post-title">Posts Jedan</h2>
+    <h2 class="blog-post-title">{{ $post->title }}</h2>
     <p class="blog-post-meta"><small></i>December 30, 1992 by <a href="#">Marin</a></i></small></p>
 
-    <p>Tekst članka...<a href="#">Klikni za više</a></p>
+    <p>{{ $post->description }} <a href="#"> Klikni za više</a></p>
     <blockquote>
-        <p>Još teksta...<a href="" class="btn btn-primary btn-sm">Learn more</a></p>
+        <p>{{ $post->created_at}} <a href="" class="btn btn-primary btn-sm"> Learn more</a></p>
     
     
     
     
         <div class="blog-post">
-    <h2 class="blog-post-title">Posts Dva</h2>
+    <h2 class="blog-post-title">{{ $post->title }}</h2>
     <p class="blog-post-meta"><small></i>December 30, 1992 by <a href="#">Marin</a></i></small></p>
 
-    <p>Tekst članka...<a href="#">Klikni za više</a></p>
+    <p>{{ $post->description }} <a href="#"> Klikni za više</a></p>
     <blockquote>
-        <p>Još teksta...<a href="" class="btn btn-primary btn-sm">Learn more</a></p>
-    
+        <p>{{ $post->created_at}} <a href="" class="btn btn-primary btn-sm"> Learn more</a></p>
 
-        <div class="blog-post">
-    <h2 class="blog-post-title">Posts Tri</h2>
+
+<div class="blog-post">
+    <h2 class="blog-post-title">{{ $post->title }}</h2>
     <p class="blog-post-meta"><small></i>December 30, 1992 by <a href="#">Marin</a></i></small></p>
 
-    <p>Tekst članka...<a href="#">Klikni za više</a></p>
+    <p>{{ $post->description }} <a href="#"> Klikni za više</a></p>
     <blockquote>
-        <p>Još teksta...<a href="" class="btn btn-primary btn-sm">Learn more</a></p>
-    
+        <p>{{ $post->created_at}} <a href="" class="btn btn-primary btn-sm"> Learn more</a></p>
     
     </div>
-
+    @endforeach
+    @endif
 
     <nav class="blog-pagination">
     <a class="btn btn-outline-primary" href="#">Older</a>

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-<a class='navbar-brand' href="#"><strong><em><big><i>BlogeraŠ</i></big></em></strong></a>
+<a class='navbar-brand' href="{{ route('welcome') }}"><strong><em><i>BlogeraŠ</i></em></strong></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="collapse" data-target="#navbarsExample09" aria-expanded="false" aria-label="Toggle Navigation">
 
 <span class="navbar-tpggler-icon"></span>
